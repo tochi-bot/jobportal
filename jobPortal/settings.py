@@ -29,10 +29,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['django-jobs.herokuapp.com',
-                 'localhost',
-                 '8000-tochibot-djangojobs-dvh7wu7xp7u.ws-eu114.gitpod.io',
-                 '8000-tochibot-djangojobs-52g18y5hf7v.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    'jobportal.herokuapp.com',
+    'localhost',
+    '8000-tochibot-jobportal-jyfg8qbcp71.ws.codeinstitute-ide.net'
+
+]
 
 
 # Application definition
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobs',
+    'blog',
+    
 ]
 
 MIDDLEWARE = [
@@ -91,6 +95,12 @@ WSGI_APPLICATION = 'jobPortal.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-tochibot-jobportal-jyfg8qbcp71.ws.codeinstitute-ide.net",
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com"
+]
 
 
 # Password validation
