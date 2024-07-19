@@ -7,8 +7,12 @@ class Company(models.Model):
     location = models.CharField(max_length=255)
     description = models.TextField()
 
+    class Meta:
+        ordering = ["name"]  # Order companies alphabetically by name
+
     def __str__(self):
         return self.name
+
 
 class Job(models.Model):
     title = models.CharField(max_length=255, unique=True)
@@ -16,6 +20,9 @@ class Job(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=255)
     posted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-posted_at"]  # Order jobs by most recently posted
 
     def __str__(self):
         return self.title
@@ -26,6 +33,11 @@ class Application(models.Model):
     cover_letter = models.TextField()
     applied_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ["-applied_at"]  # Order applications by most recently applied
+
     def __str__(self):
         return f"{self.user.username} applied for {self.job.title}"
+
+
 

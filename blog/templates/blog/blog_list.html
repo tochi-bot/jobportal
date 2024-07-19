@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+</head>
+<body>
+    <h1>Blogs List</h1>
+    {% if object_list %}
+        {% for blog in object_list %}
+            <h2>{{ blog.title }}</h2>
+            <p>{{ blog.excerpt }}</p>
+            <p>Author: {{ blog.author }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No blogs available.</p>
+    {% endif %}
+</body>
+</html>

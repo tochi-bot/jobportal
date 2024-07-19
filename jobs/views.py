@@ -2,7 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Job
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 
+
+class jobs_list(generic.ListView):
+    model=Job
 # View for listing all jobs
 def job_list(request):
     jobs = Job.objects.all()

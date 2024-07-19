@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'jobportal.herokuapp.com',
@@ -93,7 +93,9 @@ WSGI_APPLICATION = 'jobPortal.wsgi.application'
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"),
+        conn_max_age=600,  # Maximum lifetime of a connection (in seconds)
+        ssl_require=True ) # Use SSL for secure connections 
 }
 
 CSRF_TRUSTED_ORIGINS = [
