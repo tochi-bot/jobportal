@@ -28,12 +28,13 @@ TEMPLATES_DIR= os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'jobportal.herokuapp.com',
     'localhost',
-    '8000-tochibot-jobportal-jyfg8qbcp71.ws.codeinstitute-ide.net'
+    '8000-tochibot-jobportal-jyfg8qbcp71.ws.codeinstitute-ide.net',
+    'jobportalnew-f90a3b90e9ee.herokuapp.com'
 
 ]
 
