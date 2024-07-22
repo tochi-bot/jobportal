@@ -1,5 +1,1 @@
 web: gunicorn jobPortal.wsgi
-asgiref==3.8.1
-Django==4.2.14
-gunicorn==20.1.0
-sqlparse==0.5.0
