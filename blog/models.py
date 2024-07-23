@@ -9,6 +9,8 @@ class BlogPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     approved=models.BooleanField(default=False)
+    slug = models.SlugField(unique=True, blank=True, max_length=255)
+    
 
     class Meta:
         ordering = ["-created_at"]
